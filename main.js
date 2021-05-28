@@ -334,33 +334,105 @@
 // console.log(amy.getFullName())
 // console.log(neo.getFullName())
 
-class Vehicle{
-  constructor(name, wheel){
-    this.name = name
-    this.wheel = wheel
-  }
-}
-const myVehicle = new Vehicle('운송수단', 2)
-console.log(myVehicle )
+// class Vehicle{
+//   constructor(name, wheel){
+//     this.name = name
+//     this.wheel = wheel
+//   }
+// }
+// const myVehicle = new Vehicle('운송수단', 2)
+// console.log(myVehicle )
 
-class Bicycle extends Vehicle {
-  constructor(name, wheel){
-    super(name, wheel)
-  }
-}
-const myBicycle = new Bicycle('삼천리', 2)
-const daughtersBicyle = new Bicycle('세발', 3)
-console.log(myBicycle)
-console.log(daughtersBicyle)
+// class Bicycle extends Vehicle {
+//   constructor(name, wheel){
+//     super(name, wheel)
+//   }
+// }
+// const myBicycle = new Bicycle('삼천리', 2)
+// const daughtersBicyle = new Bicycle('세발', 3)
+// console.log(myBicycle)
+// console.log(daughtersBicyle)
 
-class Car extends Vehicle{
-  constructor(name, wheel, license){
-    super(name, wheel)
-    this.license = license
-  }
-}
-const myCar = new Car('벤츠', 4, 'have')
-const daughtersCar = new Car('포르쉐',  4, 'none')
+// class Car extends Vehicle{
+//   constructor(name, wheel, license){
+//     super(name, wheel)
+//     this.license = license
+//   }
+// }
+// const myCar = new Car('벤츠', 4, 'have')
+// const daughtersCar = new Car('포르쉐',  4, 'none')
 
-console.log(myCar)
-console.log(daughtersCar)
+// console.log(myCar)
+// console.log(daughtersCar)
+
+// const result = 'Hello world' .indexOf('world')
+// console.log(result)
+ 
+// const str = '0123'
+
+// console.log(str.length)
+
+// const str = 'Hello world!'
+// const str = 'skw0616@naver.com'
+// const str = '      Hello world  '
+
+  // console.log(str.indexOf('world') !== -1)
+  // console.log(str.indexOf('SOng') !== -1) 
+  // console.log(str.slice(0, 3))
+  // console.log(str.slice(6, 11))
+  // console.log(str.replace('world', 'HEROPY'))
+  // console.log(str.replace(' world!', ''))
+  // console.log(str.match(/.+(?=@)/)[0])  // 정규표현식!
+  // console.log(str.trim()) 
+
+  // console.log('abs:', Math.abs(-12))
+
+  // console.log('min:', Math.min(2, 8))
+  // console.log('max:', Math.max(2, 8))
+  // console.log('ceil:', Math.ceil(3.14))
+  // console.log('floor:', Math.floor(3.14))
+  // console.log('round:', Math.round(3.14))
+  // console.log('random:', Math.random())
+// .length
+  // const number = [1, 2, 3, 4]
+  // const fruits = ['Apple', 'Banana', 'Cherry']
+
+  // console.log(number.length)
+  // console.log(fruits.length)
+  // console.log([1,2].length)
+
+  // console.log([].length)
+
+  // console.log(number.concat(fruits))
+  // console.log(number)
+  // console.log(fruits)
+// .forEach()
+//  fruits.forEach(function (element, index, array){
+//    console.log(element, index, array)
+//  })
+//  fruits.forEach(function (fruit, i){
+//   console.log(fruit, i)
+// })
+
+//.map()
+
+const number = [1, 2, 3, 4]
+const fruits = ['Apple', 'Banana', 'Cherry']
+
+const a= fruits.forEach((fruit, index) => {
+  console.log(`${fruit}-${index}`)
+})
+console.log(a)
+
+const b = fruits.map( (fruit, index) => ({
+  // return `${fruit}-${index}`
+
+  id: index,
+  name: fruit
+  
+}))
+console.log(b)
+
+
+
+
