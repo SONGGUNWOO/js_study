@@ -416,23 +416,92 @@
 
 //.map()
 
-const number = [1, 2, 3, 4]
+// const number = [1, 2, 3, 4]
+// const fruits = ['Apple', 'Banana', 'Cherry']
+
+// const a= fruits.forEach((fruit, index) => {
+//   console.log(`${fruit}-${index}`)
+// })
+// console.log(a)
+
+// const b = fruits.map( (fruit, index) => ({
+//   // return `${fruit}-${index}`
+
+//   id: index,
+//   name: fruit
+
+// }))
+// console.log(b)
+
+//filter()
+
+const numbers = [1,2,3,4]
 const fruits = ['Apple', 'Banana', 'Cherry']
 
-const a= fruits.forEach((fruit, index) => {
-  console.log(`${fruit}-${index}`)
-})
-console.log(a)
+// const a = numbers.map(number => {
+//   return number < 3
+// }) 실행문이 하나일때 이런식으로 생략 가능 !!
+// const a = numbers.map(number => number < 3)
+// console.log(a)
 
-const b = fruits.map( (fruit, index) => ({
-  // return `${fruit}-${index}`
+// const b = numbers.filter(number => {
+//   return number <3
+// })
+// const b = numbers.filter(number => number <3)
 
-  id: index,
-  name: fruit
-  
-}))
-console.log(b)
+// console.log(b)
+
+// .find(), .findIndex() 에 대해서 공부
+//find 원하는것 을 출려갛게 하는것.!
+// const a = fruits.find(fruit => {
+//   return /^B/.test(fruit)
+// // })
+// const a = fruits.find(fruit => /^B/.test(fruit))
+// console.log(a)
+
+// const a = fruits.find(fruit =>{
+//   return /^B/.test(fruit)
+// })
+
+//findIndex 배열이 몇번째 인지 찾는것!
+// const b = fruits.findIndex(fruit => /^C/.test(fruit))
+// console.log(b)    
 
 
+// includes()
+// const a = numbers.includes(3)
+// console.log(a)
 
+// const b = fruits.includes('SONG')
+// console.log(b)
 
+// push(),  unshift()
+// 원본 수정됨 주의!
+  //push 는 제일 오른쪽에 삽입되는 것임!!! 
+// numbers.push(5)
+// console.log(numbers)
+  // unshift  는 배열 데이터에 가장 앞쪽에다가 데이터를 삽입함 !!
+// numbers.unshift(0)
+// console.log(numbers)
+
+// reverse()
+  // 배열  아이템 순서를 뒤집는다. 
+// numbers.reverse()
+// fruits.reverse()
+
+// console.log(numbers)
+// console.log(fruits)
+
+// splice()
+  // 원본 수정됨 주의!
+  // 인덱스 번호 (주소 ) 넣고 그걸 지워라 
+    // splice(주소, 지우는 갯수, 끼워 넣을것)
+    // 제거 할때도 사용 될수 있는데 끼워 넣을때도 사용 할수도 있다!! 그러면 push 상위호환 아닌가 ? 
+  // numbers.splice(2, 1)
+  numbers.splice(2, 1, 99)
+
+  console.log(numbers)
+
+  fruits.splice(2, 0, 'Orange')
+
+  console.log(fruits)
