@@ -435,8 +435,8 @@
 
 //filter()
 
-const numbers = [1,2,3,4]
-const fruits = ['Apple', 'Banana', 'Cherry']
+// const numbers = [1,2,3,4]
+// const fruits = ['Apple', 'Banana', 'Cherry']
 
 // const a = numbers.map(number => {
 //   return number < 3
@@ -498,10 +498,160 @@ const fruits = ['Apple', 'Banana', 'Cherry']
     // splice(주소, 지우는 갯수, 끼워 넣을것)
     // 제거 할때도 사용 될수 있는데 끼워 넣을때도 사용 할수도 있다!! 그러면 push 상위호환 아닌가 ? 
   // numbers.splice(2, 1)
-  numbers.splice(2, 1, 99)
+  // numbers.splice(2, 1, 99)
 
-  console.log(numbers)
+  // console.log(numbers)
 
-  fruits.splice(2, 0, 'Orange')
+  // fruits.splice(2, 0, 'Orange')
 
-  console.log(fruits)
+  // console.log(fruits)
+
+  // const userAge = {
+  //   name : 'Gun',
+  //   age : 85
+  // }
+  // const userEmail = {
+  //   name : 'Gun',
+  //   email: 'skw06@naver.com'
+  // }
+
+  // const target = Object.assign(userAge, userEmail)  예제 1번
+  // console.log(target)
+  // console.log(userEmail)
+  // console.log(target === userAge)
+
+  // const a = {k: 123}
+  // const b = {k: 123}
+  // console.log(a === b)
+  // a 와 b 는 생긴것은 똑같지만 다른 데이터이다 왜일까 ? 
+  //  target & userAge 는 서로 같은 메모리 주소를 바라보고 있기에 같다고 나오는 것이고
+  // a & b 는 서로 같은 데이터를 가지고 있지만 메모리 주소(?)가 다르기 때문에 서로 다르다고 말하는것 (공부 필요 )
+  // 만약  위의 target에서 중가로를 추가하여 다른 형태로 만든다면 target & userAge 의 값이 다르게 될수 있다. 예제 2번
+
+
+  // const target = Object.assign({}, userAge, userEmail)  // 예제 2번 
+  // console.log(target)
+  // console.log(userEmail)
+  // console.log(target === userAge)
+
+  // const user = {
+  //   name: 'Gun',
+  //   age: 85,
+  //   email: 'skw0616@naver.com'
+  // }
+
+  // const keys = Object.keys(user)
+  // console.log(keys)
+    // ['name', 'age', 'email']
+
+  // console.log(user['email'])   // 객체 데이터도 indexing 방법을 지원한다! 
+
+  // const values = keys.map(key => user[key])
+  // console.log(values)  
+
+  // 구조 분해 할당 
+  // 비구조화 할당
+
+  // const user = {
+  //   name: 'Gun',
+  //   age: 85,
+  //   email: 'skw0616@naver.com'
+  // }
+  // const { name, age, email, address = 'Korea'} = user
+  // E.g, user.address 구조분해된 내용을 변수로 만들어서 활용 !
+
+  // console.log(`사용자의 이름은 ${name}입니다.`)
+  // console.log(`${name}의 나이는 ${age}세입니다`)
+  // console.log(`${name}의 이메일 주소는 ${email}입니다.`)
+  // console.log(`${name}의 사는 지역은 ${address} 입니다.`)
+
+  // const fruits = ['Apple', 'Banana', 'Cherry']
+  // const [a, b, c, d] = fruits
+  // console.log(a,b,c,d)
+  //만약 배열에서 원하는것만 뽑게 할려면
+
+  // const [ , b] = fruits
+  // 이러면 바나나가 나옴 만약 , 를 하나 더하면 Cherry 가 나옴 
+  // console.log(b)
+
+  // 전개 연산자 
+
+  // const fruits = ['Apple', 'Banana', 'Cherry', 'Orange']
+  // console.log(fruits)
+  // console.log(...fruits)
+  // console.log('Apple', 'Banana', 'Cherry')
+
+  // function toObject(a, b, ...c){ 
+    // return{ 
+    // a: a, // 축약 가능 ex) a,
+    // b: b,
+    // c: c
+
+    // }
+  //   return { a, b, c}
+  // }
+//   const toObject = (a, b, ...c) => ( {a, b, c}) 
+
+// console.log(toObject(...fruits))
+
+// 데이터 불변성
+// 원시 데이터 : Spring, Number, Boolean, undefined, null
+//           -> 쉽게 말해서 생긴것이 다르면 다르다 라고 이해할수있다 
+//---------------------------------------------------
+// |1:         |2:              |3:          |4:
+//---------------------------------------------------
+
+// let a = 1
+// let b = 4
+// console.log(a, b, a === b)
+// b = a
+// console.log(a, b, a === b)
+// a =7
+// console.log(a, b, a === b)
+// let c = 1
+// console.log(b, c, b === c)
+
+// 참조형 제이터: Object, Array, Function
+//---------------------------------------------------
+// |1: {        }|2:{         } |3:{       }  |4:
+//---------------------------------------------------
+
+// let a = {k:1}
+// let b = {k:1}
+// console.log(a, b, a ===b)
+// a.k = 7
+// b = a
+// console.log(a, b, a ===b)
+// a.k = 2
+// console.log(a, b, a ===b)
+// let c =b 
+// console.log(a, b, c, a ===c)
+// a.k = 9
+// console.log(a, b, c, a ===c)
+
+// 얕은 복사, 깊은 복사
+import _ from 'lodash'
+const user = {
+  name: 'Gun',
+  age: 85,
+  emails: ['skw0616@naver.com']
+}
+// const copyUser = user
+// const copyUser = Object.assign({}, user)  // const copyUser = {...user} 이거와 같다 !!!
+const copyUser = _.cloneDeep(user)
+console.log(copyUser === user)
+
+user.age = 22
+console.log('user', user)
+console.log('copyUser', copyUser)
+
+console.log('------')
+console.log('------')
+
+user.emails.push('wjsur0616@naver.com')
+console.log(user.emails === copyUser.emails)
+console.log('user', user)
+console.log('copyUser', copyUser)
+
+
+

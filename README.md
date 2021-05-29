@@ -35,3 +35,10 @@
 확장성 
 독립성 
 ddd
+
+이런 오류가 떴을 경우 
+Uncaught SyntaxError: Unexpected token <
+
+메인.html 파일--> header 	부분에 
+<!-- <base href="/" />   -->
+이것을 집어넣으면 된다 왜인지 모름
