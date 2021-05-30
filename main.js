@@ -630,28 +630,75 @@
 // console.log(a, b, c, a ===c)
 
 // 얕은 복사, 깊은 복사
-import _ from 'lodash'
-const user = {
-  name: 'Gun',
-  age: 85,
-  emails: ['skw0616@naver.com']
-}
+// import _ from 'lodash'
+// const user = {
+//   name: 'Gun',
+//   age: 85,
+//   emails: ['skw0616@naver.com']
+// }
 // const copyUser = user
 // const copyUser = Object.assign({}, user)  // const copyUser = {...user} 이거와 같다 !!!
-const copyUser = _.cloneDeep(user)
-console.log(copyUser === user)
+// const copyUser = _.cloneDeep(user)
+// console.log(copyUser === user)
 
-user.age = 22
-console.log('user', user)
-console.log('copyUser', copyUser)
+// user.age = 22
+// console.log('user', user)
+// console.log('copyUser', copyUser)
 
-console.log('------')
-console.log('------')
+// console.log('------')
+// console.log('------')
 
-user.emails.push('wjsur0616@naver.com')
-console.log(user.emails === copyUser.emails)
-console.log('user', user)
-console.log('copyUser', copyUser)
+// user.emails.push('wjsur0616@naver.com')
+// console.log(user.emails === copyUser.emails)
+// console.log('user', user)
+// console.log('copyUser', copyUser)
+
+// import _ from 'lodash' //From `node_modules`
+// import getType from './getType'
+// import random from './getRandom'
+// import {random, user} from './getRandom'  // 만약 객체구조 분해에서 추출한 하나의 데이터 이름이 맘에 들지 않으면 : 부호 대신 as 
+// import * as R from './getRandom' // 와일드 카드: 여러 내용을 한꺼번에 지정할 목적으로 사용하는 기호를 가르킴
 
 
+// console.log(_.camelCase('the hello world'))
+// console.log(getType([1, 2, 3]))
+// console.log(random(), random())
+// console.log(R)
 
+//uniq
+
+// import  _ from 'lodash' 
+
+// const usersA = [
+//   { userId: '1', name: 'Gun'},
+//   { userId: '2', name: 'HEROPY'}
+// ]
+// const usersB = [
+//   { userId: '1', name: 'Gun'},
+//   { userId: '3', name: 'NEO'}
+// ]
+// const usersC = usersA.concat(usersB)
+// console.log('concat', usersC)
+// console.log('uniqBy', _.uniqBy(usersC, 'userId')) //첫번째 인수에는 중복된 데이터가 들어있는걸 배열 데이터 입력, 중복 구분할 속성
+// // uniqBy 는 합쳐진 배열을 고유화 시키는거 
+
+// const usersD = _.unionBy(usersA, usersB, 'userId') // unionBy 는 배열이 여러개 일때 사용 
+// console.log('unionBy', usersD)
+
+import _ from 'lodash'
+
+const users = [
+  { userId : '1', name: 'Gun'},
+  { userId : '2', name: 'Neo'},
+  { userId : '3', name: 'Amy'},
+  { userId : '4', name: 'Evan'},
+  { userId : '5', name: 'Lewis'}
+]
+
+const FounderUser = _.find(users, {name: 'Amy'})
+const FounderUserIndex = _.findIndex(users, {name:'Amy'})
+console.log(FounderUser)
+console.log(FounderUserIndex)
+
+_.remove(users, { name:'Gun'})
+console.log(users)
