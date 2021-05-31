@@ -685,20 +685,83 @@
 // const usersD = _.unionBy(usersA, usersB, 'userId') // unionBy 는 배열이 여러개 일때 사용 
 // console.log('unionBy', usersD)
 
-import _ from 'lodash'
+// import _ from 'lodash'
 
-const users = [
-  { userId : '1', name: 'Gun'},
-  { userId : '2', name: 'Neo'},
-  { userId : '3', name: 'Amy'},
-  { userId : '4', name: 'Evan'},
-  { userId : '5', name: 'Lewis'}
-]
+// const users = [
+//   { userId : '1', name: 'Gun'},
+//   { userId : '2', name: 'Neo'},
+//   { userId : '3', name: 'Amy'},
+//   { userId : '4', name: 'Evan'},
+//   { userId : '5', name: 'Lewis'}
+// ]
 
-const FounderUser = _.find(users, {name: 'Amy'})
-const FounderUserIndex = _.findIndex(users, {name:'Amy'})
-console.log(FounderUser)
-console.log(FounderUserIndex)
+// const FounderUser = _.find(users, {name: 'Amy'})
+// const FounderUserIndex = _.findIndex(users, {name:'Amy'})
+// console.log(FounderUser)
+// console.log(FounderUserIndex)
 
-_.remove(users, { name:'Gun'})
-console.log(users)
+// _.remove(users, { name:'Gun'})
+// console.log(users)
+
+// JSON 제이슨의 경우에는 JavaScript Object Notation 자바스터디를 포현하는 하나의 포맷이다 
+
+
+// 개방형 표준 포맷! 
+// 비동기 브라우저 서버통신 
+// XML 
+// 컴퓨터 프로그램의 변수값을 표현하는데 적합하다.
+
+// JSON의 공식 인터넷 미디어 타입은 application/json이며, JSON의 파일 확장자는 .json이다 
+// 문자 데이터로 옮(?) 이건 조금더 알아봐야할듯!!
+  
+// import myData from './myData.json' 
+// console.log(myData)
+// const user = {
+//   name:'Gun',
+//   age: 85,
+//   emails: [
+//     'skw0616@naver.com',
+//     'wjsur0616@naver.com'
+//   ]
+// }
+// console.log('user', user)
+
+// const str = JSON.stringify(user) //user 모든 인수를 집어넣어서 문자데이터로 만듬 strigify
+// console.log('str', str)
+// console.log(typeof str)
+
+// const obj = JSON.parse(str) // 오브젝트화 (?)를 해줌 .. 
+// console.log('obj', obj)
+
+
+// const user = {
+//   name:'Gun',
+//   age: 85,
+//   emails: [
+//     'skw0616@naver.com',
+//     'wjsur0616@naver.com'
+//   ]
+// }
+
+// const str = localStorage.getItem('user')
+// const obj = JSON.parse(str) // 문자열이기 떄문에 객체로 바꾸기 위해 parse를 사용!!
+// obj.age = 22
+// console.log(obj)
+//   localStorage.setItem('user', JSON.stringify(obj)) // 그냥 obj 하면 안됨 그 이유는 문자열이 아니여서 그렇기에 문자열로 바꿔서 넘겨줌 
+
+
+import axios from 'axios'
+
+function fetchMovies(){
+  axios
+      .get('https://www.omdbapi.com/?apikey=3ac0ae57&s=frozen') // 데이터를 받을땐 http 보단 https 를 해야 문제가 생기지 않느다.
+      .then(res => {
+        console.log(res)
+        const h1El = document.querySelector('h1') 
+        const imgEl = document.querySelector('img')
+        h1El.textContent = res.data.Search[0].Title
+        imgEl.src = res.data.Search[0].Poster
+      }) 
+}
+
+fetchMovies()
