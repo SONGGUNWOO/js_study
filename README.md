@@ -41,4 +41,4 @@ Uncaught SyntaxError: Unexpected token <
 
 메인.html 파일--> header 	부분에 
 <!-- <base href="/" />   -->
-이것을 집어넣으면 된다 왜인지 모름
+이것을 집어넣으면 된다 왜인지 모름 ........
